@@ -24,11 +24,57 @@ const Navbar = () => {
       <div className="mycontainer">
         <div className="navbarWrapper lg:flex items-center justify-between">
           <div className="logo flex items-center justify-between">
-            <Link to="/">
-              <img className="block w-[280px]" src={logo} alt="logo images" />
-            </Link>
-            <div onClick={() => setNavbar(!navbar)} className="bar lg:hidden">
-              <FaBars className="w-7 h-7 text-[#186CCC] cursor-pointer"></FaBars>
+            <div className="logosection">
+              <Link to="/">
+                <img
+                  className="block w-[140px] sm:w-[220px] lg:w-[280px]"
+                  src={logo}
+                  alt="logo images"
+                />
+              </Link>
+            </div>
+            <div className="bar flex items-center gap-2 lg:hidden">
+              <div className="extraitems">
+                <ul className="flex items-center gap-3">
+                  {!currentUser && (
+                    <li className="lg:mt-0 loginbuton">
+                      <Link
+                        className="text-white  px-3 py-2 sm:px-5 sm:py-3 rounded-full bg-button inline-block "
+                        to="/login"
+                      >
+                        Login
+                      </Link>
+                    </li>
+                  )}
+                  {currentUser && (
+                    <li className="relative profilePic">
+                      <img
+                        className="w-9 h-9 sm:w-12 sm:h-12 rounded-full border-2 border-red-500"
+                        src={currentUser.photoURL}
+                        alt=""
+                      />
+                      <span className="absolute text-sm whitespace-nowrap bg-red-500 text-white font-medium rounded-md px-2 py-2">
+                        {currentUser.displayName && currentUser.displayName}
+                      </span>
+                    </li>
+                  )}
+
+                  {currentUser && (
+                    <li className="lg:mt-0 ">
+                      <button
+                        className=" text-white  sm:px-5 sm:py-3 px-3 py-2 rounded-full bg-button"
+                        onClick={handelSignOut}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  )}
+                </ul>
+              </div>
+              <FaBars
+                onClick={() => setNavbar(!navbar)}
+                className="w-7 h-7 text-[#186CCC] cursor-pointer"
+              ></FaBars>
             </div>
           </div>
           <div
@@ -57,12 +103,17 @@ const Navbar = () => {
                 <Link to="/">Blogs</Link>
               </li>
               {!currentUser && (
-                <li className="mt-3 lg:mt-0">
-                  <Link to="/login">Login</Link>
+                <li className="mt-3 lg:mt-0 loginbuton hidden lg:block">
+                  <Link
+                    className="text-white px-6 py-3 rounded-full bg-button inline-block "
+                    to="/login"
+                  >
+                    Login
+                  </Link>
                 </li>
               )}
               {currentUser && (
-                <li className="relative profilePic">
+                <li className="relative profilePic hidden lg:block">
                   <img
                     className="w-11 h-11 rounded-full border-2 border-red-500"
                     src={currentUser.photoURL}
@@ -75,8 +126,13 @@ const Navbar = () => {
               )}
 
               {currentUser && (
-                <li className="mt-3 lg:mt-0">
-                  <button onClick={handelSignOut}>Logout</button>
+                <li className="mt-3 lg:mt-0 hidden lg:block">
+                  <button
+                    className=" text-white px-6 py-3 rounded-full bg-button"
+                    onClick={handelSignOut}
+                  >
+                    Logout
+                  </button>
                 </li>
               )}
             </ul>
