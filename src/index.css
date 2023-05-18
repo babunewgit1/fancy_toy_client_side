@@ -115,7 +115,12 @@ body {
 
 .profilePic span {
   transform: scaleX(0);
-  transition: all 0.4s ease;
-  -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
+  transform-origin: left;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+}
+
+.profilePic:hover span {
+  transform: scaleX(1);
 }

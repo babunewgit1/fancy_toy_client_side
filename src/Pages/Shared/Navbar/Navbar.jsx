@@ -56,9 +56,11 @@ const Navbar = () => {
               <li className="mt-3 lg:mt-0">
                 <Link to="/">Blogs</Link>
               </li>
-              <li className="mt-3 lg:mt-0">
-                <Link to="/login">Login</Link>
-              </li>
+              {!currentUser && (
+                <li className="mt-3 lg:mt-0">
+                  <Link to="/login">Login</Link>
+                </li>
+              )}
               {currentUser && (
                 <li className="relative profilePic">
                   <img
