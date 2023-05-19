@@ -181,3 +181,53 @@ body {
 .submitButton button:hover:after {
   width: 100%;
 }
+
+.heroSlider button:after,
+.heroSlider button:before {
+  content: none;
+}
+
+.heroSlider button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: inherit;
+  background-color: #fff !important;
+  padding: 10px;
+}
+
+button.slick-next {
+  position: absolute !important;
+  right: 2% !important;
+  top: 50% !important;
+  z-index: 99 !important;
+  background-image: url(./assets/right.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 80% 80% !important;
+  background-position: top 4px right 5px !important;
+}
+
+.slick-next:hover {
+  background-image: url(./assets/right.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 80% 80% !important;
+  background-color: #fff !important;
+}
+
+button.slick-prev {
+  position: absolute !important;
+  left: 2% !important;
+  top: 50% !important;
+  z-index: 99 !important;
+  background-image: url(./assets/left.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 80% 80% !important;
+  background-position: top 4px right 5px !important;
+}
+
+.slick-next:hover {
+  background-image: url(./assets/right.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 80% 80% !important;
+  background-color: #fff !important;
+}
