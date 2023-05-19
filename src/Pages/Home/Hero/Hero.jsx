@@ -32,7 +32,7 @@ const Hero = () => {
               We offer premium toy car, whether you are shopping <br /> at one
               of our actual stores or via our website!
             </p>
-            <Link to="/">Discover now</Link>
+            <Link to="/">Discover </Link>
           </div>
         </div>
         <div className="slideOne">
