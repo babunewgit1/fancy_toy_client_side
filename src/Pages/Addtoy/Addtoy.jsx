@@ -4,18 +4,8 @@ import CreatableSelect from "react-select/creatable";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../AuthProvidor/AuthProvidor";
-const options = [
-  { value: "sports car", label: "sports car" },
-  { value: "truck", label: "truck" },
-  { value: "regular car", label: "regular car" },
-  { value: "mini fire truck", label: "mini fire truck" },
-  { value: "mini fire truck", label: "mini fire truck" },
-  { value: "mini police car", label: "mini police car" },
-  { value: "Others", label: "Others" },
-];
 
 const Addtoy = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
   const { register, handleSubmit } = useForm();
   const { currentUser } = useContext(AuthContext);
   const onSubmit = (data, event) => {
@@ -28,7 +18,6 @@ const Addtoy = () => {
     if (isNaN(event.target.quentity.value)) {
       return toast.error("Quentity must be number!!!");
     }
-    data.sub_cata = selectedOption;
     fetch("http://localhost:5000/addtoy", {
       method: "POST",
       headers: {
@@ -111,11 +100,17 @@ const Addtoy = () => {
                     <label className="font-semibold mb-2 block">
                       Sub-category
                     </label>
-                    <CreatableSelect
-                      defaultValue={selectedOption}
-                      onChange={setSelectedOption}
-                      options={options}
-                    />
+                    <select
+                      className="block w-full border border-gray-900 px-5 py-2 outline-none"
+                      {...register("sub_cata")}
+                    >
+                      <option value="sports car">sports car</option>
+                      <option value="truck">truck</option>
+                      <option value="regular car">regular car</option>
+                      <option value="mini fire truck">mini fire truck</option>
+                      <option value="mini police car">mini police car</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
                   <div className="houseInput">
                     <label className="font-semibold mb-2 block">Price</label>

@@ -248,3 +248,17 @@ button.slick-prev {
   align-items: center;
   justify-content: center;
 }
+
+.gellaryBody {
+  background-image: url(./assets/4.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+  padding: 60px 0px;
+}
+
+.activeCar {
+  background-color: #12cce1;
+}

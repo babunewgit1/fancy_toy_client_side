@@ -13,9 +13,12 @@ const Hero = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
   };
   return (
     <div className="heroSlider relative">
@@ -134,7 +137,7 @@ const Hero = () => {
                 of our actual stores or via our website!
               </p>
               <Link
-                className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
+                className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70 duration-300"
                 to="/"
               >
                 Discover
