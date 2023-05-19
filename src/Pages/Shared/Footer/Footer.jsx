@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <section id="footer" className="bg-[#172B4D]">
       <div className="mycontainer">
-        <div className="footer-wrapper flex justify-between py-12">
+        <div className="footer-wrapper flex justify-between pt-12 pb-5">
           <div className="footerLogo">
             <Link to="/">
               <img src={logo} alt="footer logo" />
@@ -105,6 +105,14 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="copyright text-center border-t border-t-white py-10">
+          <p className=" font-medium text-white">
+            all rights reserved by
+            <Link className="text-[#FF3300]" to="/">
+              <span> FancyToys</span>
+            </Link>
+          </p>
         </div>
       </div>
     </section>
