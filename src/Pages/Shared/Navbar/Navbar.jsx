@@ -96,7 +96,7 @@ const Navbar = () => {
               )}
               {currentUser && (
                 <li className="mt-3 lg:mt-0">
-                  <Link to="/">Add A Toy</Link>
+                  <Link to="/addtoy">Add A Toy</Link>
                 </li>
               )}
               <li className="mt-3 lg:mt-0">

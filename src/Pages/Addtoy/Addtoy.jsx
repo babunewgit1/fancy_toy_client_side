@@ -4,7 +4,7 @@ import Bannar from "../Shared/Bannar/Bannar";
 const Addtoy = () => {
   return (
     <section id="addtoy">
-      <Bannar></Bannar>
+      <Bannar bannar={"Add Toy"}></Bannar>
     </section>
   );
 };

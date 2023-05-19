@@ -132,3 +132,13 @@ body {
 .loginbuton a:after {
   content: none !important;
 }
+
+#bannar {
+  background-image: url(./assets/bannar.png);
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 120px 0px;
+}
