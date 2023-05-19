@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Bannar from "../Shared/Bannar/Bannar";
 import CreatableSelect from "react-select/creatable";
+import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 const options = [
   { value: "sports car", label: "sports car" },
   { value: "truck", label: "truck" },
@@ -13,6 +15,22 @@ const options = [
 
 const Addtoy = () => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data, event) => {
+    if (isNaN(event.target.price.value)) {
+      return toast.error("Pirce must be number!!!");
+    }
+    if (isNaN(event.target.rating.value)) {
+      return toast.error("Rating must be number!!!");
+    }
+    if (isNaN(event.target.quentity.value)) {
+      return toast.error("Quentity must be number!!!");
+    }
+
+    data.sub_cata = selectedOption;
+    console.log(data);
+  };
+
   return (
     <section id="addtoy">
       <Bannar bannar={"Add Toy"}></Bannar>
@@ -25,21 +43,23 @@ const Addtoy = () => {
               </h2>
             </div>
             <div className="addToysInput mt-8">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="toyFormWrapper grid grid-cols-2 gap-5">
                   <div className="houseInput">
                     <label className="font-semibold mb-2 block">
                       Picture URL
                     </label>
                     <input
+                      {...register("pic_url")}
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
-                      type="text"
+                      type="url"
                       placeholder="Picture URL"
                     />
                   </div>
                   <div className="houseInput">
-                    <label className="font-semibold mb-2 block">Name</label>
+                    <label className="font-semibold mb-2 block">Toy Name</label>
                     <input
+                      {...register("toy_name")}
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
                       type="text"
                       placeholder="Name"
@@ -50,6 +70,7 @@ const Addtoy = () => {
                       Seller name
                     </label>
                     <input
+                      {...register("seller_name")}
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
                       type="text"
                       placeholder="Seller name"
@@ -60,18 +81,9 @@ const Addtoy = () => {
                       Seller email
                     </label>
                     <input
+                      {...register("seller_email")}
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
-                      type="text"
-                      placeholder="Seller email"
-                    />
-                  </div>
-                  <div className="houseInput">
-                    <label className="font-semibold mb-2 block">
-                      Seller email
-                    </label>
-                    <input
-                      className="block w-full border border-gray-900 px-5 py-2 outline-none"
-                      type="text"
+                      type="email"
                       placeholder="Seller email"
                     />
                   </div>
@@ -88,17 +100,20 @@ const Addtoy = () => {
                   <div className="houseInput">
                     <label className="font-semibold mb-2 block">Price</label>
                     <input
+                      {...register("price")}
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
                       type="text"
                       placeholder="Price"
+                      name="price"
                     />
                   </div>
                   <div className="houseInput">
                     <label className="font-semibold mb-2 block">Rating</label>
                     <input
+                      {...register("rating")}
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
                       type="text"
-                      placeholder="Price"
+                      placeholder="Rating"
                     />
                   </div>
                   <div className="houseInput">
@@ -106,6 +121,7 @@ const Addtoy = () => {
                       Available quantity
                     </label>
                     <input
+                      {...register("quentity")}
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
                       type="text"
                       placeholder="Available quantity"
@@ -116,6 +132,7 @@ const Addtoy = () => {
                       Detail description
                     </label>
                     <textarea
+                      {...register("discription")}
                       placeholder="Detail description"
                       className="block h-[120px] resize-none w-full border border-gray-900 px-5 py-2 outline-none"
                     ></textarea>
@@ -133,6 +150,7 @@ const Addtoy = () => {
             </div>
           </div>
         </div>
+        <Toaster></Toaster>
       </div>
     </section>
   );
