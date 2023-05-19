@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Bannar from "../Shared/Bannar/Bannar";
 import CreatableSelect from "react-select/creatable";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
+import { AuthContext } from "../../AuthProvidor/AuthProvidor";
 const options = [
   { value: "sports car", label: "sports car" },
   { value: "truck", label: "truck" },
@@ -16,6 +17,7 @@ const options = [
 const Addtoy = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const { register, handleSubmit } = useForm();
+  const { currentUser } = useContext(AuthContext);
   const onSubmit = (data, event) => {
     if (isNaN(event.target.price.value)) {
       return toast.error("Pirce must be number!!!");
@@ -26,9 +28,24 @@ const Addtoy = () => {
     if (isNaN(event.target.quentity.value)) {
       return toast.error("Quentity must be number!!!");
     }
-
     data.sub_cata = selectedOption;
-    console.log(data);
+    fetch("http://localhost:5000/addtoy", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((toyData) => {
+        if (toyData.insertedId) {
+          toast.success("Toy Data added in to Database");
+          event.target.reset();
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -74,6 +91,7 @@ const Addtoy = () => {
                       className="block w-full border border-gray-900 px-5 py-2 outline-none"
                       type="text"
                       placeholder="Seller name"
+                      defaultValue={currentUser?.displayName}
                     />
                   </div>
                   <div className="houseInput">
@@ -82,9 +100,11 @@ const Addtoy = () => {
                     </label>
                     <input
                       {...register("seller_email")}
-                      className="block w-full border border-gray-900 px-5 py-2 outline-none"
+                      className="block cursor-not-allowed w-full border border-gray-900 px-5 py-2 outline-none"
                       type="email"
+                      readOnly
                       placeholder="Seller email"
+                      defaultValue={currentUser?.email}
                     />
                   </div>
                   <div className="houseInput">

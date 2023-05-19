@@ -231,3 +231,20 @@ button.slick-prev {
   background-size: 80% 80% !important;
   background-color: #fff !important;
 }
+
+.slideOne {
+  position: relative;
+  z-index: 9;
+}
+
+.innertext {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

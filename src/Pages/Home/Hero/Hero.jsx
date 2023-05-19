@@ -27,12 +27,21 @@ const Hero = () => {
             alt="slide images"
           />
           <div className="innertext">
-            <h2>Pick the best toy truck</h2>
-            <p>
-              We offer premium toy car, whether you are shopping <br /> at one
-              of our actual stores or via our website!
-            </p>
-            <Link to="/">Discover </Link>
+            <div className="innercontent text-white text-center space-y-8">
+              <h2 className="text-8xl font-semibold">
+                Pick the best toy <span className="text-[#ED0EFD]">truck</span>
+              </h2>
+              <p className="text-2xl font-medium">
+                We offer premium toy car, whether you are shopping <br /> at one
+                of our actual stores or via our website!
+              </p>
+              <Link
+                className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
+                to="/"
+              >
+                Discover
+              </Link>
+            </div>
           </div>
         </div>
         <div className="slideOne">
@@ -41,6 +50,23 @@ const Hero = () => {
             src={img2}
             alt="slide images"
           />
+          <div className="innertext">
+            <div className="innercontent text-white text-center space-y-8">
+              <h2 className="text-8xl font-semibold">
+                Pick the best toy <span className="text-[#ED0EFD]">Bus</span>
+              </h2>
+              <p className="text-2xl font-medium">
+                We offer premium toy car, whether you are shopping <br /> at one
+                of our actual stores or via our website!
+              </p>
+              <Link
+                className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
+                to="/"
+              >
+                Discover
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="slideOne">
           <img
@@ -48,20 +74,73 @@ const Hero = () => {
             src={img3}
             alt="slide images"
           />
+          <div className="innertext">
+            <div className="innercontent text-white text-center space-y-8">
+              <h2 className="text-8xl font-semibold">
+                Pick the best toy{" "}
+                <span className="text-[#ED0EFD]">Micro Bus</span>
+              </h2>
+              <p className="text-2xl font-medium">
+                We offer premium toy car, whether you are shopping <br /> at one
+                of our actual stores or via our website!
+              </p>
+              <Link
+                className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
+                to="/"
+              >
+                Discover
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="slideOne">
           <img
-            className="w-full h-[650px] object-cover"
+            className="w-full h-[700px] object-cover"
             src={img4}
             alt="slide images"
           />
+          <div className="innertext">
+            <div className="innercontent text-white text-center space-y-8">
+              <h2 className="text-8xl font-semibold">
+                Pick the best toy{" "}
+                <span className="text-[#ED0EFD]">Police car</span>
+              </h2>
+              <p className="text-2xl font-medium">
+                We offer premium toy car, whether you are shopping <br /> at one
+                of our actual stores or via our website!
+              </p>
+              <Link
+                className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
+                to="/"
+              >
+                Discover
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="slideOne">
           <img
-            className="w-full h-[650px] object-cover"
+            className="w-full h-[700px] object-cover"
             src={img5}
             alt="slide images"
           />
+          <div className="innertext">
+            <div className="innercontent text-white text-center space-y-8">
+              <h2 className="text-8xl font-semibold">
+                Pick the best toy <span className="text-[#ED0EFD]">Others</span>
+              </h2>
+              <p className="text-2xl font-medium">
+                We offer premium toy car, whether you are shopping <br /> at one
+                of our actual stores or via our website!
+              </p>
+              <Link
+                className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
+                to="/"
+              >
+                Discover
+              </Link>
+            </div>
+          </div>
         </div>
       </Slider>
     </div>
