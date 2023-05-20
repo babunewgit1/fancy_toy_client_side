@@ -16,9 +16,9 @@ import useTitle from "../../hooks/useTitle";
 
 const Signup = () => {
   useTitle("Toy car | Sign Up");
-  let navigate = useNavigate();
-  let location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+  // let navigate = useNavigate();
+  // let location = useLocation();
+  // let from = location.state?.from?.pathname || "/";
 
   const { register, handleSubmit } = useForm();
   const { customLogin } = useContext(AuthContext);
