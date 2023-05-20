@@ -262,3 +262,11 @@ button.slick-prev {
 .activeCar {
   background-color: #12cce1;
 }
+
+.mytoysTable table tr:nth-child(even) td {
+  background-color: #f2f2f2;
+}
+
+.modal {
+  z-index: 99 !important;
+}

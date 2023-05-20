@@ -6,14 +6,20 @@ import {
   FaEnvelopeOpen,
   FaPhotoVideo,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../AuthProvidor/AuthProvidor";
 import toast, { Toaster } from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import Googlelogin from "../Shared/Googlelogin/Googlelogin";
+import useTitle from "../../hooks/useTitle";
 
 const Signup = () => {
+  useTitle("Toy car | Sign Up");
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const { register, handleSubmit } = useForm();
   const { customLogin } = useContext(AuthContext);
 
@@ -38,6 +44,7 @@ const Signup = () => {
         });
         toast.success("User signup completed!!!!!");
         event.target.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);

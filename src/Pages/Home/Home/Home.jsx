@@ -4,8 +4,10 @@ import Gallery from "../Gallery/Gallery";
 import Tab from "../Tab/Tab";
 import Aboutus from "../Aboutus/Aboutus";
 import Client from "../Client/Client";
+import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
+  useTitle("Toy car | Home");
   return (
     <>
       <Hero></Hero>

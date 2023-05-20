@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="logosection">
               <Link to="/">
                 <img
-                  className="block w-[140px] sm:w-[220px] lg:w-[280px]"
+                  className="block w-[140px] sm:w-[180px] lg:w-[200px]"
                   src={logo}
                   alt="logo images"
                 />
@@ -87,11 +87,11 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li className="mt-3 lg:mt-0">
-                <Link to="/">All Toys</Link>
+                <Link to="/alltoy">All Toys</Link>
               </li>
               {currentUser && (
                 <li className="mt-3 lg:mt-0">
-                  <Link to="/">My Toys</Link>
+                  <Link to="/mytoys">My Toys</Link>
                 </li>
               )}
               {currentUser && (

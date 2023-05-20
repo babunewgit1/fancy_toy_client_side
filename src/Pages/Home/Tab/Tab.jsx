@@ -17,6 +17,11 @@ const Tab = () => {
         console.error("Error:", error);
       });
   }, [catagory]);
+
+  const handelConsol = (toy) => {
+    console.log(toy);
+  };
+
   return (
     <section id="tab" className="py-16">
       <div className="mycontainer">
@@ -74,7 +79,7 @@ const Tab = () => {
                             ? toy?.pic_url
                             : "https://i.ibb.co/QMPVpJ6/360-F-400243185-BOx-ON3h9av-MUX10-Rs-Dkt3p-J8i-Qx72k-S3.jpg"
                         }
-                        alt=""
+                        alt="car images"
                       />
                     </div>
                     <div className="otherInfo text-left p-4 pb-0 space-y-5">
@@ -103,13 +108,32 @@ const Tab = () => {
                           )}
                         </div>
                       </div>
-                      <button className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70">
-                        <Link to={`/toy/${toy._id}`}>View Details</Link>
+                      <button className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70 activeCar">
+                        <Link to={`/toy/${toy._id}`}> View Details</Link>
                       </button>
                     </div>
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </div>
+        <div className="modal">
+          <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+          <div className="modal modal-bottom sm:modal-middle">
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">
+                Congratulations random Internet user!
+              </h3>
+              <p className="py-4">
+                You've been selected for a chance to get one year of
+                subscription to use Wikipedia for free!
+              </p>
+              <div className="modal-action">
+                <label htmlFor="my-modal-6" className="btn">
+                  Yay!
+                </label>
+              </div>
             </div>
           </div>
         </div>

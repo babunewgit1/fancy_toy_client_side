@@ -2,14 +2,20 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../AuthProvidor/AuthProvidor";
 import { FaGoogle } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Googlelogin = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const { googleLogin } = useContext(AuthContext);
   const handelgoogleLogin = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
         toast.success("User login successfull!!!");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);

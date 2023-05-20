@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import { FaLock, FaEnvelopeOpen } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../AuthProvidor/AuthProvidor";
 import Googlelogin from "../Shared/Googlelogin/Googlelogin";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitle("Toy car | Login");
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const { register, handleSubmit } = useForm();
   const { customSignIn } = useContext(AuthContext);
 
@@ -21,6 +27,7 @@ const Login = () => {
         const user = userCredential.user;
         toast.success("User login successfull!!!");
         event.target.reset();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);

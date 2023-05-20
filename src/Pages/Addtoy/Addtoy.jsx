@@ -4,8 +4,10 @@ import CreatableSelect from "react-select/creatable";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../AuthProvidor/AuthProvidor";
+import useTitle from "../../hooks/useTitle";
 
 const Addtoy = () => {
+  useTitle("Toy car | Add toy");
   const { register, handleSubmit } = useForm();
   const { currentUser } = useContext(AuthContext);
   const onSubmit = (data, event) => {
@@ -15,6 +17,11 @@ const Addtoy = () => {
     if (isNaN(event.target.rating.value)) {
       return toast.error("Rating must be number!!!");
     }
+
+    if (event.target.rating.value > 5) {
+      return toast.error("Rating can not be more than 5!!!");
+    }
+
     if (isNaN(event.target.quentity.value)) {
       return toast.error("Quentity must be number!!!");
     }
