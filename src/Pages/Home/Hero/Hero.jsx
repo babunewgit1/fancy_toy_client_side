@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,8 +8,12 @@ import img3 from "../../../assets/3.jpg";
 import img4 from "../../../assets/4.jpg";
 import img5 from "../../../assets/5.jpg";
 import { Link } from "react-router-dom";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Hero = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const settings = {
     dots: false,
     infinite: true,
@@ -29,7 +33,7 @@ const Hero = () => {
             src={img1}
             alt="slide images"
           />
-          <div className="innertext">
+          <div data-aos="fade-up-left" className="innertext">
             <div className="innercontent text-white text-center space-y-8">
               <h2 className="text-8xl font-semibold">
                 Pick the best toy <span className="text-[#ED0EFD]">truck</span>
@@ -53,7 +57,7 @@ const Hero = () => {
             src={img2}
             alt="slide images"
           />
-          <div className="innertext">
+          <div data-aos="fade-down-right" className="innertext">
             <div className="innercontent text-white text-center space-y-8">
               <h2 className="text-8xl font-semibold">
                 Pick the best toy <span className="text-[#ED0EFD]">Bus</span>
@@ -77,7 +81,7 @@ const Hero = () => {
             src={img3}
             alt="slide images"
           />
-          <div className="innertext">
+          <div data-aos="fade-up-right" className="innertext">
             <div className="innercontent text-white text-center space-y-8">
               <h2 className="text-8xl font-semibold">
                 Pick the best toy{" "}
@@ -102,7 +106,7 @@ const Hero = () => {
             src={img4}
             alt="slide images"
           />
-          <div className="innertext">
+          <div data-aos="fade-up-right" className="innertext">
             <div className="innercontent text-white text-center space-y-8">
               <h2 className="text-8xl font-semibold">
                 Pick the best toy{" "}
@@ -127,7 +131,7 @@ const Hero = () => {
             src={img5}
             alt="slide images"
           />
-          <div className="innertext">
+          <div data-aos="fade-up-right" className="innertext">
             <div className="innercontent text-white text-center space-y-8">
               <h2 className="text-8xl font-semibold">
                 Pick the best toy <span className="text-[#ED0EFD]">Others</span>

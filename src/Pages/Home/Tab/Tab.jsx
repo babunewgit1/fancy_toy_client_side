@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Tab = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const [catagory, setCatagory] = useState("sports car");
   const [filterData, setFilterData] = useState([]);
 
@@ -68,6 +73,7 @@ const Tab = () => {
               {filterData.map((toy) => {
                 return (
                   <div
+                    data-aos="fade-up-left"
                     className="toyWrap shadow-xl pb-8 rounded-md overflow-hidden"
                     key={toy._id}
                   >

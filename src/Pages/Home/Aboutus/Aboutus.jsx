@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ipic1 from "../../../assets/i1.webp";
 import ipic2 from "../../../assets/i2.webp";
 import ipic3 from "../../../assets/i3.webp";
 import ipic4 from "../../../assets/i4.webp";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Aboutus = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
     <section id="aboutus" className="bg-[#F5F6F7] py-24">
       <div className="mycontainer">
@@ -18,7 +23,10 @@ const Aboutus = () => {
             </p>
           </div>
           <div className="gelleryWrapper grid grid-cols-4 gap-8">
-            <div className="gellerybox bg-white rounded-2xl p-12 shadow-sm text-center">
+            <div
+              data-aos="fade-up-left"
+              className="gellerybox  bg-white rounded-2xl p-12 shadow-sm text-center"
+            >
               <img
                 className="block w-[80px] h-[80px] object-cover mx-auto"
                 src={ipic1}
@@ -27,7 +35,10 @@ const Aboutus = () => {
               <h4 className="text-2xl font-medium mt-6">Big Selection</h4>
               <p className="text-base mt-1 opacity-50">The widest toy range.</p>
             </div>
-            <div className="gellerybox bg-white rounded-2xl p-12 shadow-sm text-center">
+            <div
+              data-aos="fade-down-right"
+              className="gellerybox bg-white rounded-2xl p-12 shadow-sm text-center"
+            >
               <img
                 className="block w-[80px] h-[80px] object-cover mx-auto"
                 src={ipic2}
@@ -38,7 +49,10 @@ const Aboutus = () => {
                 Easiest online shopping.
               </p>
             </div>
-            <div className="gellerybox bg-white rounded-2xl p-12 shadow-sm text-center">
+            <div
+              data-aos="fade-up-right"
+              className="gellerybox bg-white rounded-2xl p-12 shadow-sm text-center"
+            >
               <img
                 className="block w-[80px] h-[80px] object-cover mx-auto"
                 src={ipic3}
@@ -49,7 +63,10 @@ const Aboutus = () => {
                 Fast and easy delivery.
               </p>
             </div>
-            <div className="gellerybox bg-white rounded-2xl p-12 shadow-sm text-center">
+            <div
+              data-aos="fade-up-right"
+              className="gellerybox bg-white rounded-2xl p-12 shadow-sm text-center"
+            >
               <img
                 className="block w-[80px] h-[80px] object-cover mx-auto"
                 src={ipic4}
