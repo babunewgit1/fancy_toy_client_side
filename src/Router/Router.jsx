@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    // errorElement: <NotFround></NotFround>,
+    errorElement: <NotFround></NotFround>,
     children: [
       {
         path: "/",
@@ -32,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtoy",
-        element: <Addtoy></Addtoy>,
+        element: (
+          <PrivetRoute>
+            <Addtoy></Addtoy>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/toy/:id",
@@ -41,11 +45,16 @@ const router = createBrowserRouter([
             <Details></Details>
           </PrivetRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://back-end-two-alpha.vercel.app/toy/${params.id}`),
       },
       {
         path: "/mytoys",
-        element: <Mytoys></Mytoys>,
+        element: (
+          <PrivetRoute>
+            <Mytoys></Mytoys>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/alltoy",

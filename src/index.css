@@ -151,7 +151,6 @@ body {
 .addToyFull {
   box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  padding: 70px;
 }
 
 .css-13cymwt-control,
@@ -277,4 +276,8 @@ button.slick-prev {
 
 a.active {
   color: #186ccc !important;
+}
+
+.loginbuton a.active {
+  color: #fff !important;
 }

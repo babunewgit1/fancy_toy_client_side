@@ -4,7 +4,7 @@ import useTitle from "../../hooks/useTitle";
 
 const Details = () => {
   const detailsData = useLoaderData();
-  useTitle("Toy car | Toy Details");
+  useTitle("Toy car zone | Toy Details");
 
   return (
     <section id="toyDetails" className="py-20">

@@ -2,7 +2,7 @@ import React from "react";
 import useTitle from "../../hooks/useTitle";
 
 const Blog = () => {
-  useTitle("Toy car | Blog");
+  useTitle("Toy car zone | Blog");
   return (
     <section id="blog">
       <div className="mycontainer">

@@ -8,7 +8,7 @@ import c5 from "../../../assets/c5.webp";
 
 const Client = () => {
   return (
-    <section id="client" className="py-24">
+    <section id="client" className="py-16 lg:py-24">
       <div className="mycontainer">
         <div className="clientWrapper">
           <div className="galleryHeading  pb-10">

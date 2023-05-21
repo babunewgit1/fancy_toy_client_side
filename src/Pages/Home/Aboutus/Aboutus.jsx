@@ -11,7 +11,7 @@ const Aboutus = () => {
     Aos.init({ duration: 1000 });
   }, []);
   return (
-    <section id="aboutus" className="bg-[#F5F6F7] py-24">
+    <section id="aboutus" className="bg-[#F5F6F7] py-14 lg:py-24">
       <div className="mycontainer">
         <div className="aboutusWrapper">
           <div className="galleryHeading  pb-10">
@@ -22,7 +22,7 @@ const Aboutus = () => {
               We make your children happier <br /> with the best toys
             </p>
           </div>
-          <div className="gelleryWrapper grid grid-cols-4 gap-8">
+          <div className="gelleryWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div
               data-aos="fade-up-left"
               className="gellerybox  bg-white rounded-2xl p-12 shadow-sm text-center"

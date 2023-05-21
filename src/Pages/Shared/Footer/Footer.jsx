@@ -15,11 +15,14 @@ const Footer = () => {
   return (
     <section id="footer" className="bg-[#172B4D]">
       <div className="mycontainer">
-        <div className="footer-wrapper flex justify-between pt-12 pb-5">
+        <div className="footer-wrapper block lg:flex justify-between pt-12 pb-5 lg:space-y-0 space-y-10">
           <div className="footerLogo">
             <Link to="/">
               <img src={logo} alt="footer logo" />
             </Link>
+            <h2 className="text-3xl font-semibold py-5 text-white">
+              Toy car zone
+            </h2>
             <ul className="flex items-center gap-4 mt-5">
               <li>
                 <a href="#">
@@ -92,7 +95,7 @@ const Footer = () => {
                 </div>
               </li>
               <li className="flex gap-5 text-white">
-                <span className="mt-[5px]">
+                <span className="mt-[23px]">
                   <FaMapMarkerAlt></FaMapMarkerAlt>
                 </span>
                 <div className="mail mt-5">
@@ -110,7 +113,7 @@ const Footer = () => {
           <p className=" font-medium text-white">
             all rights reserved by
             <Link className="text-[#FF3300]" to="/">
-              <span> FancyToys</span>
+              <span> Toy car zone</span>
             </Link>
           </p>
         </div>

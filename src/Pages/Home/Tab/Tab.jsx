@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { AuthContext } from "../../../AuthProvidor/AuthProvidor";
+import Swal from "sweetalert2";
 
 const Tab = () => {
   useEffect(() => {
@@ -11,9 +13,10 @@ const Tab = () => {
   }, []);
   const [catagory, setCatagory] = useState("sports car");
   const [filterData, setFilterData] = useState([]);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/alltoy/${catagory}`)
+    fetch(`https://back-end-two-alpha.vercel.app/alltoy/${catagory}`)
       .then((res) => res.json())
       .then((filterToy) => {
         setFilterData(filterToy);
@@ -23,8 +26,16 @@ const Tab = () => {
       });
   }, [catagory]);
 
-  const handelConsol = (toy) => {
-    console.log(toy);
+  const handelAlert = () => {
+    if (!currentUser) {
+      Swal.fire({
+        timer: 1000,
+        icon: "error",
+        title: "Oops...",
+        text: "You have to log in first to view details",
+        showConfirmButton: false,
+      });
+    }
   };
 
   return (
@@ -37,11 +48,11 @@ const Tab = () => {
             </h3>
           </div>
           <div className="tabHeading text-center">
-            <ul className="flex items-end gap-6 justify-center">
+            <ul className="flex items-end gap-2 lg:gap-6 justify-center">
               <li>
                 <button
                   onClick={() => setCatagory("sports car")}
-                  className={`inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70 ${
+                  className={`inline-block text-white bg-[#ED0EFD] text-sm md:text-base font-medium rounded-md px-3 lg:px-6 py-4 hover:opacity-70 ${
                     catagory === "sports car" && "activeCar"
                   }`}
                 >
@@ -51,7 +62,7 @@ const Tab = () => {
               <li>
                 <button
                   onClick={() => setCatagory("truck")}
-                  className={`inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70 ${
+                  className={`inline-block text-white bg-[#ED0EFD] text-sm md:text-base font-medium rounded-md px-3 lg:px-6 py-4 hover:opacity-70 ${
                     catagory === "truck" && "activeCar"
                   }`}
                 >
@@ -61,7 +72,7 @@ const Tab = () => {
               <li>
                 <button
                   onClick={() => setCatagory("regular car")}
-                  className={`inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70 ${
+                  className={`inline-block text-white bg-[#ED0EFD] text-sm md:text-base font-medium rounded-md px-3 lg:px-6 py-4 hover:opacity-70 ${
                     catagory === "regular car" && "activeCar"
                   }`}
                 >
@@ -69,7 +80,7 @@ const Tab = () => {
                 </button>
               </li>
             </ul>
-            <div className="filterdToyDetails grid grid-cols-2 gap-10 max-w-[850px] mx-auto mt-11">
+            <div className="filterdToyDetails grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[850px] mx-auto mt-11">
               {filterData.map((toy) => {
                 return (
                   <div
@@ -114,8 +125,14 @@ const Tab = () => {
                           )}
                         </div>
                       </div>
-                      <button className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70 activeCar">
-                        <Link to={`/toy/${toy._id}`}> View Details</Link>
+                      <button className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md  hover:opacity-70 activeCar">
+                        <Link
+                          className="px-6 py-4 inline-block"
+                          onClick={handelAlert}
+                          to={`/toy/${toy._id}`}
+                        >
+                          View Details
+                        </Link>
                       </button>
                     </div>
                   </div>

@@ -7,7 +7,7 @@ import { AuthContext } from "../../AuthProvidor/AuthProvidor";
 import useTitle from "../../hooks/useTitle";
 
 const Addtoy = () => {
-  useTitle("Toy car | Add toy");
+  useTitle("Toy car zone | Add toy");
   const { register, handleSubmit } = useForm();
   const { currentUser } = useContext(AuthContext);
   const onSubmit = (data, event) => {
@@ -25,7 +25,7 @@ const Addtoy = () => {
     if (isNaN(event.target.quentity.value)) {
       return toast.error("Quentity must be number!!!");
     }
-    fetch("http://localhost:5000/addtoy", {
+    fetch("https://back-end-two-alpha.vercel.app/addtoy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,7 +49,7 @@ const Addtoy = () => {
       <Bannar bannar={"Add Toy"}></Bannar>
       <div className="toyform py-14">
         <div className="mycontainer">
-          <div className="addToyFull">
+          <div className="addToyFull md:p-16 p-4">
             <div className="addToy-form text-center">
               <h2 className="text-3xl font-semibold border-b-2 border-gray-950 pb-6">
                 Add Toy Form
@@ -57,7 +57,7 @@ const Addtoy = () => {
             </div>
             <div className="addToysInput mt-8">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="toyFormWrapper grid grid-cols-2 gap-5">
+                <div className="toyFormWrapper md:grid  md:grid-cols-2 gap-5 space-y-4 md:space-y-0">
                   <div className="houseInput">
                     <label className="font-semibold mb-2 block">
                       Picture URL
@@ -108,7 +108,7 @@ const Addtoy = () => {
                       Sub-category
                     </label>
                     <select
-                      className="block w-full border border-gray-900 px-5 py-2 outline-none"
+                      className="block w-full bg-white border border-gray-900 px-5 py-2 outline-none"
                       {...register("sub_cata")}
                     >
                       <option value="sports car">sports car</option>

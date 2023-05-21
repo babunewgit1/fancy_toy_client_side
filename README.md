@@ -16,4 +16,4 @@
 
 ## Live website link:
 
-https://chef-cdaec.web.app/
+https://fancytoy-235ff.web.app

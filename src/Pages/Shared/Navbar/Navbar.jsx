@@ -96,16 +96,12 @@ const Navbar = () => {
               <li className="mt-3 lg:mt-0">
                 <NavLink to="/alltoy">All Toys</NavLink>
               </li>
-              {currentUser && (
-                <li className="mt-3 lg:mt-0">
-                  <NavLink to="/mytoys">My Toys</NavLink>
-                </li>
-              )}
-              {currentUser && (
-                <li className="mt-3 lg:mt-0">
-                  <NavLink to="/addtoy">Add A Toy</NavLink>
-                </li>
-              )}
+              <li className="mt-3 lg:mt-0">
+                <NavLink to="/mytoys">My Toys</NavLink>
+              </li>
+              <li className="mt-3 lg:mt-0">
+                <NavLink to="/addtoy">Add A Toy</NavLink>
+              </li>
               <li className="mt-3 lg:mt-0">
                 <NavLink to="/blog">Blogs</NavLink>
               </li>

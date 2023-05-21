@@ -7,7 +7,7 @@ import Client from "../Client/Client";
 import useTitle from "../../../hooks/useTitle";
 
 const Home = () => {
-  useTitle("Toy car | Home");
+  useTitle("Toy car zone | Home");
   return (
     <>
       <Hero></Hero>

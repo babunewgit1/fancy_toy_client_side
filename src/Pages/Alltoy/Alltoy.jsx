@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvidor/AuthProvidor";
 
 const Alltoy = () => {
-  useTitle("Toy car | All toy");
+  useTitle("Toy car zone | All toy");
   const [fullToyData, setFullToyData] = useState([]);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/kidstoy")
+    fetch("https://back-end-two-alpha.vercel.app/kidstoy")
       .then((res) => res.json())
       .then((allData) => setFullToyData(allData));
   }, []);
@@ -17,13 +20,25 @@ const Alltoy = () => {
     const inputext = event.target.search.value;
 
     if (inputext) {
-      fetch(`http://localhost:5000/search/${inputext}`)
+      fetch(`https://back-end-two-alpha.vercel.app/search/${inputext}`)
         .then((res) => res.json())
         .then((searchData) => setFullToyData(searchData));
     } else {
-      fetch("http://localhost:5000/kidstoy")
+      fetch("https://back-end-two-alpha.vercel.app/kidstoy")
         .then((res) => res.json())
         .then((allData) => setFullToyData(allData));
+    }
+  };
+
+  const handelAlert = () => {
+    if (!currentUser) {
+      Swal.fire({
+        timer: 1000,
+        icon: "error",
+        title: "Oops...",
+        text: "You have to log in first to view details",
+        showConfirmButton: false,
+      });
     }
   };
 
@@ -68,15 +83,17 @@ const Alltoy = () => {
                   {fullToyData.map((items, index) => {
                     return (
                       <tr key={items._id}>
-                        <td>{index + 1}</td>
+                        <th>{index + 1}</th>
                         <td>{items?.seller_name}</td>
                         <td>{items?.toy_name}</td>
                         <td>{items?.sub_cata}</td>
                         <td>{items?.price}</td>
                         <td>{items?.quentity}</td>
                         <td>
-                          <button className="btn">
-                            <Link to={`/toy/${items._id}`}>View Details</Link>
+                          <button onClick={handelAlert}>
+                            <Link className="btn" to={`/toy/${items._id}`}>
+                              View Details
+                            </Link>
                           </button>
                         </td>
                       </tr>

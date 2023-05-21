@@ -8,7 +8,7 @@ import Googlelogin from "../Shared/Googlelogin/Googlelogin";
 import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
-  useTitle("Toy car | Login");
+  useTitle("Toy car zone | Login");
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <section id="login" className="login py-28">
       <div className="loginWrapper max-w-[555px] px-3 mx-auto">
-        <div className="loginContent bg-white rounded-md p-10">
+        <div className="loginContent bg-white rounded-md p-4 md:p-10">
           <div className="loginHeading">
             <h3 className="text-4xl font-semibold text-center mb-5">Login</h3>
           </div>

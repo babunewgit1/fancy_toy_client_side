@@ -21,7 +21,7 @@ const Gallery = () => {
   return (
     <section id="Gallery">
       <div className="mycontainer">
-        <div className="galleryHeading pt-20 pb-10">
+        <div className="galleryHeading pt-10 lg:pt-20 pb-10">
           <h3 className="text-center text-4xl font-semibold">
             Toy <span className="text-[#ED0EFD]">Gallery</span>
           </h3>
@@ -29,7 +29,7 @@ const Gallery = () => {
       </div>
       <div className="gellaryBody">
         <div className="mycontainer">
-          <div className="toygWrapper grid grid-cols-4 gap-5">
+          <div className="toygWrapper grid grid-cols-2 lg:grid-cols-4 gap-5">
             <div
               data-aos="fade-right"
               className="toyImg border-4 border-[#12CCE1] overflow-hidden"

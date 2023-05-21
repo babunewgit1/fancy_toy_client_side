@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useTitle from "../../../hooks/useTitle";
 
 const NotFround = () => {
-  useTitle("Toy Car | 404");
+  useTitle("Toy car zone | 404");
   return (
     <div className="h-screen text-center relative">
       <img

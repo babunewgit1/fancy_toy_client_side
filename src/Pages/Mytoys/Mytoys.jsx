@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 
 const Mytoys = () => {
-  useTitle("Toy car | MY Toy");
+  useTitle("Toy car zone | MY Toy");
   const { currentUser } = useContext(AuthContext);
   const [mytoy, setMytoy] = useState([]);
   const [edit, setEdit] = useState(null);
@@ -26,7 +26,7 @@ const Mytoys = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (updateData, event) => {
-    fetch(`http://localhost:5000/update/${edit._id}`, {
+    fetch(`https://back-end-two-alpha.vercel.app/update/${edit._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,9 @@ const Mytoys = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoy/${currentUser?.email}?sort=${sort}`)
+    fetch(
+      `https://back-end-two-alpha.vercel.app/mytoy/${currentUser?.email}?sort=${sort}`
+    )
       .then((res) => res.json())
       .then((myData) => setMytoy(myData));
   }, [currentUser, reload, sort]);
@@ -63,7 +65,7 @@ const Mytoys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://back-end-two-alpha.vercel.app/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -158,7 +160,7 @@ const Mytoys = () => {
                             {...register("price")}
                             className="block w-full border border-gray-900 px-5 py-2 outline-none"
                             type="text"
-                            placeholder={edit?.price}
+                            defaultValue={edit?.price}
                           />
                         </div>
                         <div className="houseInput mt-4">
@@ -169,7 +171,7 @@ const Mytoys = () => {
                             {...register("quentity")}
                             className="block w-full border border-gray-900 px-5 py-2 outline-none"
                             type="text"
-                            placeholder={edit?.quentity}
+                            defaultValue={edit?.quentity}
                           />
                         </div>
                         <div className="houseInput mt-4">
@@ -178,7 +180,7 @@ const Mytoys = () => {
                           </label>
                           <textarea
                             {...register("discription")}
-                            placeholder={edit?.discription}
+                            defaultValue={edit?.discription}
                             className="block h-[80px] resize-none w-full border border-gray-900 px-5 py-2 outline-none"
                           ></textarea>
                         </div>

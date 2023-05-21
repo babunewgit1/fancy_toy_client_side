@@ -15,7 +15,7 @@ import Googlelogin from "../Shared/Googlelogin/Googlelogin";
 import useTitle from "../../hooks/useTitle";
 
 const Signup = () => {
-  useTitle("Toy car | Sign Up");
+  useTitle("Toy car zone | Sign Up");
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -53,7 +53,7 @@ const Signup = () => {
   return (
     <section id="login" className="login py-16">
       <div className="loginWrapper max-w-[555px] px-3 mx-auto">
-        <div className="loginContent bg-white rounded-md p-10">
+        <div className="loginContent bg-white rounded-md p-4 md:p-10">
           <div className="loginHeading">
             <h3 className="text-4xl font-semibold text-center mb-5">Signup</h3>
           </div>
@@ -124,7 +124,7 @@ const Signup = () => {
                 </div>
               </div>
             </form>
-            <Googlelogin></Googlelogin>
+
             <div className="haveAccount mt-8">
               <p className="font-medium text-center">
                 Already have an account? Please
