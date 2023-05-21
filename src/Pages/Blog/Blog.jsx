@@ -1,9 +1,16 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle";
 
 const Blog = () => {
+  useTitle("Toy car | Blog");
   return (
     <section id="blog">
       <div className="mycontainer">
+        <div className="galleryHeading pt-20 pb-10">
+          <h3 className="text-center text-4xl font-semibold">
+            Question and <span className="text-[#ED0EFD]">Answer</span>
+          </h3>
+        </div>
         <div className="blogWrapper pt-14">
           <div className="blogQuestionOne mb-14">
             <h2 className="text-2xl font-semibold">

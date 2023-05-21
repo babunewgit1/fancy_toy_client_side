@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import logo from "../../../assets/logo.png";
 import { FaBars } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvidor/AuthProvidor";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -25,25 +25,25 @@ const Navbar = () => {
         <div className="navbarWrapper lg:flex items-center justify-between">
           <div className="logo flex items-center justify-between">
             <div className="logosection">
-              <Link to="/">
+              <NavLink to="/">
                 <img
                   className="block w-[140px] sm:w-[180px] lg:w-[200px]"
                   src={logo}
                   alt="logo images"
                 />
-              </Link>
+              </NavLink>
             </div>
             <div className="bar flex items-center gap-2 lg:hidden">
               <div className="extraitems">
                 <ul className="flex items-center gap-3">
                   {!currentUser && (
                     <li className="lg:mt-0 loginbuton">
-                      <Link
+                      <NavLink
                         className="text-white  px-3 py-2 sm:px-5 sm:py-3 rounded-full bg-button inline-block "
                         to="/login"
                       >
                         Login
-                      </Link>
+                      </NavLink>
                     </li>
                   )}
                   {currentUser && (
@@ -84,32 +84,39 @@ const Navbar = () => {
           >
             <ul className="lg:flex  items-center gap-5  font-medium">
               <li className="mt-3 lg:mt-0">
-                <Link to="/">Home</Link>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                  }
+                  to="/"
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="mt-3 lg:mt-0">
-                <Link to="/alltoy">All Toys</Link>
+                <NavLink to="/alltoy">All Toys</NavLink>
               </li>
               {currentUser && (
                 <li className="mt-3 lg:mt-0">
-                  <Link to="/mytoys">My Toys</Link>
+                  <NavLink to="/mytoys">My Toys</NavLink>
                 </li>
               )}
               {currentUser && (
                 <li className="mt-3 lg:mt-0">
-                  <Link to="/addtoy">Add A Toy</Link>
+                  <NavLink to="/addtoy">Add A Toy</NavLink>
                 </li>
               )}
               <li className="mt-3 lg:mt-0">
-                <Link to="/blog">Blogs</Link>
+                <NavLink to="/blog">Blogs</NavLink>
               </li>
               {!currentUser && (
                 <li className="mt-3 lg:mt-0 loginbuton hidden lg:block">
-                  <Link
+                  <NavLink
                     className="text-white px-6 py-3 rounded-full bg-button inline-block "
                     to="/login"
                   >
                     Login
-                  </Link>
+                  </NavLink>
                 </li>
               )}
               {currentUser && (

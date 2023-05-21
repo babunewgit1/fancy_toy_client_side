@@ -4,6 +4,7 @@ import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const Mytoys = () => {
   useTitle("Toy car | MY Toy");

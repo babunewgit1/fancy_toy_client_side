@@ -33,6 +33,10 @@ body {
   -moz-transition: all 0.3s ease;
 }
 
+.menuItems ul li a.active:after {
+  width: 100%;
+}
+
 .menuItems ul li a:hover:after {
   width: 100%;
 }
@@ -269,4 +273,8 @@ button.slick-prev {
 
 .modal {
   z-index: 99 !important;
+}
+
+a.active {
+  color: #186ccc !important;
 }
