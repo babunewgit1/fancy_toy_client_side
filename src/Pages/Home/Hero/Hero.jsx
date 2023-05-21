@@ -44,7 +44,7 @@ const Hero = () => {
               </p>
               <Link
                 className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
-                to="/"
+                to="/alltoy"
               >
                 Discover
               </Link>
@@ -68,7 +68,7 @@ const Hero = () => {
               </p>
               <Link
                 className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
-                to="/"
+                to="/alltoy"
               >
                 Discover
               </Link>
@@ -93,7 +93,7 @@ const Hero = () => {
               </p>
               <Link
                 className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
-                to="/"
+                to="/alltoy"
               >
                 Discover
               </Link>
@@ -118,7 +118,7 @@ const Hero = () => {
               </p>
               <Link
                 className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70"
-                to="/"
+                to="/alltoy"
               >
                 Discover
               </Link>
@@ -142,7 +142,7 @@ const Hero = () => {
               </p>
               <Link
                 className="inline-block text-white bg-[#ED0EFD] font-xl font-medium rounded-md px-6 py-4 hover:opacity-70 duration-300"
-                to="/"
+                to="/alltoy"
               >
                 Discover
               </Link>

@@ -100,7 +100,7 @@ const Navbar = () => {
                 </li>
               )}
               <li className="mt-3 lg:mt-0">
-                <Link to="/">Blogs</Link>
+                <Link to="/blog">Blogs</Link>
               </li>
               {!currentUser && (
                 <li className="mt-3 lg:mt-0 loginbuton hidden lg:block">
