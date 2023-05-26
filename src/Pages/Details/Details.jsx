@@ -17,7 +17,7 @@ const Details = () => {
             </span>
           </h3>
         </div>
-        <div className="toyDetailswrapper mt-10 grid grid-cols-2 gap-7 items-center shadow-lg rounded-lg overflow-hidden">
+        <div className="toyDetailswrapper mt-10 grid grid-cols-1 md:grid-cols-2 gap-7 items-center shadow-lg rounded-lg overflow-hidden">
           <div className="toyDetailsImg h-full">
             <img
               className="w-full h-full object-cover"

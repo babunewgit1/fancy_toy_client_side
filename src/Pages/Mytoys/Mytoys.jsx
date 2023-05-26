@@ -109,7 +109,7 @@ const Mytoys = () => {
                   {mytoy.map((items, index) => {
                     return (
                       <tr key={items._id}>
-                        <td>{index + 1}</td>
+                        <th>{index + 1}</th>
                         <td>{items?.seller_name}</td>
                         <td>{items?.toy_name}</td>
                         <td>{items?.sub_cata}</td>
