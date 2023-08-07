@@ -5,6 +5,7 @@ import Tab from "../Tab/Tab";
 import Aboutus from "../Aboutus/Aboutus";
 import Client from "../Client/Client";
 import useTitle from "../../../hooks/useTitle";
+import Download from "../Download/Download";
 
 const Home = () => {
   useTitle("Toy car zone | Home");
@@ -15,6 +16,7 @@ const Home = () => {
       <Tab></Tab>
       <Aboutus></Aboutus>
       <Client></Client>
+      <Download></Download>
     </>
   );
 };
